@@ -32,6 +32,7 @@ import { CaseCreationComponent } from './case-creation/case-creation.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'create-case', component: CaseCreationComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [

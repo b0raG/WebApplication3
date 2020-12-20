@@ -11,8 +11,8 @@ export class CaseCreationComponent implements OnInit {
   constructor() { }
 
   model: ICase = {
-    afm1: 232,
-    afm2: 545
+    afm1: null,
+    afm2: null
 
   }
 
