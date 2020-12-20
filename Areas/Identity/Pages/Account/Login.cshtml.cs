@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace WebApplication3.Areas.Identity.Pages.Account
 {
@@ -21,14 +22,17 @@ namespace WebApplication3.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IConfiguration _configuarion;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _configuarion = configuration;
         }
 
         [BindProperty]
@@ -84,9 +88,12 @@ namespace WebApplication3.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                if (Input.Role == "lawyer")
+                if (Input.Role == "admin")
                 {
+                    var adminUser = await _userManager.FindByEmailAsync(_configuarion["AdminUser:AdminUserEmail"]);
+                    await _signInManager.SignInAsync(adminUser, false);
                     return LocalRedirect(returnUrl);
                 }
 
