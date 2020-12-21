@@ -1,6 +1,6 @@
-export interface ICase {
-  afm1: number,
-  afm2: number
+export interface ICaseCreateRequest {
+  laywer1afm: number,
+  laywer2afm: number
 }
 
 export class Case {

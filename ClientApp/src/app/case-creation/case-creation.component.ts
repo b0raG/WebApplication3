@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ICase } from './case.interface';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ICaseCreateRequest } from './case.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-case-creation',
@@ -8,17 +9,28 @@ import { ICase } from './case.interface';
 })
 export class CaseCreationComponent implements OnInit {
 
-  constructor() { }
+  private _http: HttpClient;
+  private baseurl: string
 
-  model: ICase = {
-    afm1: null,
-    afm2: null
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this._http = http;
+    this.baseurl = baseUrl;
+  }
+
+  model: ICaseCreateRequest = {
+    laywer1afm: null,
+    laywer2afm: null
 
   }
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    this.submitted = true;
+    this._http.post<ICaseCreateRequest>(this.baseurl + 'api/Cases', this.model).subscribe((result: any) => {
+      console.log(result);
+    });
+  }
 
   ngOnInit() {
   }

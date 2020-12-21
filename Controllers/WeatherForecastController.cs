@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication3.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

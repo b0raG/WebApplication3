@@ -6,10 +6,10 @@
         <div class="col-sm">
 
           <div class="form-group">
-            <label for="afm1">AFM 1</label>
-            <input type="text" class="form-control" id="afm1"
+            <label for="lawyerafm1">AFM 1</label>
+            <input type="text" class="form-control" id="lawyerafm1"
                    required
-                   [(ngModel)]="model.afm1" name="afm1"
+                   [(ngModel)]="model.lawyerafm1" name="lawyerafm1"
                    #name="ngModel">
             <div [hidden]="name.valid || name.pristine"
                  class="alert alert-danger">
@@ -19,9 +19,9 @@
         </div>
         <div class="col-sm">
           <div class="form-group">
-            <label for="afm1">AFM 2</label>
-            <input type="text" class="form-control" id="afm2"
-                   [(ngModel)]="model.afm2" name="afm2">
+            <label for="lawyerafm2">AFM 2</label>
+            <input type="text" class="form-control" id="lawyerafm2"
+                   [(ngModel)]="model.lawyerafm2" name="lawyerafm2">
           </div>
         </div>
       </div>
@@ -33,5 +33,9 @@
 
 
     </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h1>Case Created</h1>
+    <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
   </div>
 </div>
