@@ -1,0 +1,141 @@
+<div  class="container">
+    <h1>Case Creation</h1>
+    <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+      <div class="row col-sm-4">
+        <div class="form-group">
+          <label>{{'CaseCreate.UserAFM' | translate  }}</label>
+          {{lawyer_from_afm.value}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="client_afm">{{'CaseCreate.ClientAFM' | translate  }}</label>
+            <input type="text" class="form-control" id="client_afm"
+                    formControlName="client_afm">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="client_amka">{{'CaseCreate.ClientAMKA' | translate  }}</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="client_amka"
+                      formControlName="client_amka">
+              <div class="input-group-append">
+                <button class="btn btn-primary" (click)="getMarriageInfo()">
+                  {{'CaseCreate.GetMarriageInfo' | translate  }}
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <fieldset class="border p-2">
+        <legend class="w-auto">
+          {{'CaseCreate.SpousesInfo' | translate  }}
+        </legend>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="client_firstname">{{'CaseCreate.ClientFirstname' | translate  }}</label>
+              <input type="text" class="form-control" id="lawyer_from_afm" 
+                      formControlName="client_firstname">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="spouse_firstname">{{'CaseCreate.SpouseFirstname' | translate  }}</label>
+              <input type="text" class="form-control" formControlName="spouse_firstname"  >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="client_surname">{{'CaseCreate.ClientSurname' | translate  }}</label>
+              <input type="text" class="form-control"  formControlName="client_surname">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="spouse_surname">{{'CaseCreate.SpouseSurname' | translate  }}</label>
+              <input type="text" class="form-control" formControlName="spouse_surname"      >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_type">{{'CaseCreate.MarriageType' | translate  }}</label>
+              <input type="text" class="form-control"  formControlName="marriage_type">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_place">{{'CaseCreate.MarriagePlace' | translate  }}</label>
+              <input type="text" class="form-control" formControlName="marriage_place" 
+                     >
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_date">{{'CaseCreate.MarriageDate' | translate  }}</label>
+              <input type="text" class="form-control" formControlName="marriage_date" 
+                     >
+
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer_to_afm">{{'CaseCreate.Lawyer2AFM' | translate  }}</label>
+            <input type="text" class="form-control" formControlName="lawyer_to_afm"  >
+            <div [hidden]="lawyer_to_afm.valid || lawyer_to_afm.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer_from_email">{{'CaseCreate.Lawyer1Email' | translate  }}</label>
+            <input type="text" class="form-control" id="lawyer_from_email"
+                    formControlName="lawyer_from_email">
+            <div [hidden]="lawyer_from_email.valid || lawyer_from_email.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer_to_email">{{'CaseCreate.Lawyer2Email' | translate  }}</label>
+            <input type="text" class="form-control" formControlName="lawyer_to_email" >
+            <div [hidden]="lawyer_to_email.valid || lawyer_to_email.pristine"
+                 class="alert alert-danger">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-success" [disabled]="!caseForm.valid">Submit</button>
+
+
+
+    </form>
+  <div [hidden]="!submitted">
+    <h1>Case Created</h1>
+    <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+  </div>
+</div>

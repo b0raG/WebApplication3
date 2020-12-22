@@ -18,23 +18,29 @@ export class CaseCreationComponent implements OnInit {
   }
 
   model: ICaseCreateRequest = {
-    laywer1_afm: null,
-    laywer2_afm: null,
-    laywer1_email: null,
-    laywer2_email: null,
+    //Client
     client_afm: null,
-    spouse_afm: null,
     client_amka: null,
-    spouse_amka: null,
     client_firstname: null,
-    spouse_firstname: null,
     client_surname: null,
+
+    //Spouse
+    spouse_afm: null,
+    spouse_amka: null,
+    spouse_firstname: null,
     spouse_surname: null,
+
+    //Marriage
     marriage_type: null,
     marriage_place: null,
     marriage_date: null,
     children_number: null ,
-    children: []
+    children: [],
+
+    laywer_from_afm: null,
+    laywer_to_afm: null,
+    laywer_from_email: null,
+    laywer_to_email: null,
 
   }
 

@@ -1,13 +1,22 @@
 {
   "CaseCreate": {
     "ClientAFM": "ΑΦΜ Πελατη",
+    "ClientAMKA": "AMKA Πελατη",
     "SpousesInfo": "Πληροφοριες Γαμου",
 
-    "Firstname": "Ονομα",
-    "Lawyer1AFM": "ΑΦΜ Δικηγορου 1",
+    "ClientFirstname": "Ονομα Πελατη",
+    "ClientSurname": "Επιθετο Πελατη",
+    "SpouseFirstname": "Ονομα Συζυγου",
+    "SpouseSurname": "Επιθετο Συζυγου",
+    "UserAFM": "ΑΦΜ Χρηστη",
     "Lawyer2AFM": "ΑΦΜ Δικηγορου 2",
     "Lawyer1Email": "Email Δικηγορου 1",
-    "Lawyer2Email": "Email Δικηγορου 2"
+    "Lawyer2Email": "Email Δικηγορου 2",
+
+    "GetMarriageInfo": "Ληψη στοιχειων γαμου",
+    "MarriagePlace": "Τοπος Γαμου",
+    "MarriageDate": "Ημερομηνια Γαμου",
+    "MarriageType": "Τυπος Γαμου"
 
   }
 }

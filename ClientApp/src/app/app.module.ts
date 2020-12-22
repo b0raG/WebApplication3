@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -15,6 +15,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { CaseCreationComponent } from './case-creation/case-creation.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader/';
+import { CreateCaseReactiveComponent } from './create-case-reactive/create-case-reactive.component';
 
 
 // AoT requires an exported function for factories
@@ -29,12 +30,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    CaseCreationComponent
+    CaseCreationComponent,
+    CreateCaseReactiveComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ApiAuthorizationModule,
     TranslateModule.forRoot({
       defaultLanguage: 'el',
@@ -49,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'create-case', component: CaseCreationComponent, canActivate: [AuthorizeGuard] },
+      { path: 'create-case-reactive', component: CreateCaseReactiveComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [

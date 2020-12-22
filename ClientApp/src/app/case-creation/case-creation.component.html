@@ -2,91 +2,154 @@
   <div [hidden]="submitted">
     <h1>Case Creation</h1>
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="row col-sm-4">
+        <div class="form-group">
+          <label for="lawyer1_afm">{{'CaseCreate.UserAFM' | translate  }}</label>
+          <input type="text" class="form-control" id="lawyer1_afm" required [disabled]="true"
+                 [(ngModel)]="model.laywer_from_afm" name="laywer_from_afm"
+                 #laywer_from_afm="ngModel">
+          <div [hidden]="laywer_from_afm.valid || laywer_from_afm.pristine"
+               class="alert alert-danger">
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm">
           <div class="form-group">
             <label for="client_afm">{{'CaseCreate.ClientAFM' | translate  }}</label>
             <input type="text" class="form-control" id="client_afm" required
                    [(ngModel)]="model.client_afm" name="client_afm"
-                   #client_firstname="ngModel">
+                   #client_AFM="ngModel">
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="client_amka">{{'CaseCreate.ClientAMKA' | translate  }}</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="client_amka" required
+                     [(ngModel)]="model.client_amka" name="client_amka"
+                     #client_amka="ngModel">
+              <div class="input-group-append">
+                <button class="btn btn-primary">
+                  {{'CaseCreate.GetMarriageInfo' | translate  }}
+                </button>
+              </div>
+            </div>
 
+          </div>
+        </div>
+
+      </div>
+      <fieldset class="border p-2">
+        <legend class="w-auto">
+          {{'CaseCreate.SpousesInfo' | translate  }}
+        </legend>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="client_firstname">{{'CaseCreate.ClientFirstname' | translate  }}</label>
+              <input type="text" class="form-control" id="lawyer1_afm" [disabled]="true"
+                     [(ngModel)]="model.client_firstname" name="client_firstname"
+                     #client_firstname="ngModel">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="spouse_firstname">{{'CaseCreate.SpouseFirstname' | translate  }}</label>
+              <input type="text" class="form-control" id="spouse_firstname" [disabled]="true"
+                     [(ngModel)]="model.spouse_firstname" name="spouse_firstname" #spouse_firstname="ngModel">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="client_surname">{{'CaseCreate.ClientSurname' | translate  }}</label>
+              <input type="text" class="form-control" id="lawyer1_afm" [disabled]="true"
+                     [(ngModel)]="model.client_surname" name="client_surname"
+                     #client_surname="ngModel">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="spouse_surname">{{'CaseCreate.SpouseSurname' | translate  }}</label>
+              <input type="text" class="form-control" id="spouse_surname" [disabled]="true"
+                     [(ngModel)]="model.spouse_surname" name="spouse_surname" #spouse_firstname="ngModel">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_type">{{'CaseCreate.MarriageType' | translate  }}</label>
+              <input type="text" class="form-control" id="lawyer1_afm" [disabled]="true"
+                     [(ngModel)]="model.marriage_type" name="marriage_type"
+                     #marriage_type="ngModel">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_place">{{'CaseCreate.MarriagePlace' | translate  }}</label>
+              <input type="text" class="form-control" id="marriage_place" [disabled]="true"
+                     [(ngModel)]="model.marriage_place" name="marriage_place" #spouse_firstname="ngModel">
+
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="marriage_date">{{'CaseCreate.MarriageDate' | translate  }}</label>
+              <input type="text" class="form-control" id="marriage_date" [disabled]="true"
+                     [(ngModel)]="model.marriage_date" name="marriage_date" #spouse_firstname="ngModel">
+
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="row">
+
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer2_afm">{{'CaseCreate.Lawyer2AFM' | translate  }}</label>
+            <input type="text" class="form-control" id="lawyer2_afm" required
+                   [(ngModel)]="model.lawyer2_afm" name="lawyer2_afm" #lawyer2_afm="ngModel">
+            <div [hidden]="lawyer2_afm.valid || lawyer2_afm.pristine"
+                 class="alert alert-danger">
+            </div>
           </div>
         </div>
       </div>
-        <fieldset class="border p-2">
-          <legend class="w-auto">
-            {{'CaseCreate.SpousesInfo' | translate  }}
-          </legend>
-          <div class="row">
-            <div class="col-sm">
-              <div class="form-group">
-                <label for="client_firstname">{{'CaseCreate.Firstname' | translate  }}</label>
-                <input type="text" class="form-control" id="lawyer1_afm" [disabled]="true"
-                       [(ngModel)]="model.client_firstname" name="client_firstname"
-                       #client_firstname="ngModel">
-
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="form-group">
-                <label for="spouse_firstname">{{'CaseCreate.Firstname' | translate  }}</label>
-                <input type="text" class="form-control" id="spouse_firstname" [disabled]="true"
-                       [(ngModel)]="model.spouse_firstname" name="spouse_firstname" #spouse_firstname="ngModel">
-
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <div class="row">
-          <div class="col-sm">
-            <div class="form-group">
-              <label for="lawyer1_afm">{{'CaseCreate.Lawyer1AFM' | translate  }}</label>
-              <input type="text" class="form-control" id="lawyer1_afm" required
-                     [(ngModel)]="model.lawyer1_afm" name="lawyer1_afm"
-                     #lawyer1_afm="ngModel">
-              <div [hidden]="lawyer1_afm.valid || lawyer1_afm.pristine"
-                   class="alert alert-danger">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="form-group">
-              <label for="lawyer2_afm">{{'CaseCreate.Lawyer2AFM' | translate  }}</label>
-              <input type="text" class="form-control" id="lawyer2_afm" required
-                     [(ngModel)]="model.lawyer2_afm" name="lawyer2_afm" #lawyer2_afm="ngModel">
-              <div [hidden]="lawyer2_afm.valid || lawyer2_afm.pristine"
-                   class="alert alert-danger">
-              </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer1_email">{{'CaseCreate.Lawyer1Email' | translate  }}</label>
+            <input type="text" class="form-control" id="lawyer1_email" required [email]="true"
+                   [(ngModel)]="model.lawyer1_email" name="lawyer1_email"
+                   #lawyer1_email="ngModel">
+            <div [hidden]="lawyer1_email.valid || lawyer1_email.pristine"
+                 class="alert alert-danger">
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm">
-            <div class="form-group">
-              <label for="lawyer1_email">{{'CaseCreate.Lawyer1Email' | translate  }}</label>
-              <input type="text" class="form-control" id="lawyer1_email" required [email]="true"
-                     [(ngModel)]="model.lawyer1_email" name="lawyer1_email"
-                     #lawyer1_email="ngModel">
-              <div [hidden]="lawyer1_email.valid || lawyer1_email.pristine"
-                   class="alert alert-danger">
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="form-group">
-              <label for="lawyer2_email">{{'CaseCreate.Lawyer2Email' | translate  }}</label>
-              <input type="text" class="form-control" id="lawyer2_email" required [email]="true"
-                     [(ngModel)]="model.lawyer2_email" name="lawyer2_email" #lawyer2_email="ngModel">
-              <div [hidden]="lawyer2_email.valid || lawyer2_email.pristine"
-                   class="alert alert-danger">
-              </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="lawyer2_email">{{'CaseCreate.Lawyer2Email' | translate  }}</label>
+            <input type="text" class="form-control" id="lawyer2_email" required [email]="true"
+                   [(ngModel)]="model.lawyer2_email" name="lawyer2_email" #lawyer2_email="ngModel">
+            <div [hidden]="lawyer2_email.valid || lawyer2_email.pristine"
+                 class="alert alert-danger">
             </div>
           </div>
         </div>
+      </div>
 
 
 
-        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
 
 
 
